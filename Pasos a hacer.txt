@@ -1,0 +1,19 @@
+Pasos.
+
+
+
+1.- Se hace la migración. Se crean tablas con el comando:
+'php artisan make:migration create_<nombre de tabla>_table'
+
+2.- Se rellenan las tablas desde cada archivo encontrado en database>migration>nombre de la tabla.. se crean así:
+Schema::create('posts',function(Blueprint $table){
+            $table->increments('id'); //Este comando crea un id y lo autoincrementa
+            $table->integer('user_id',false,true);
+            $table->integer('channel_id',false,true);
+            $table->integer('total_replies',false,true);
+            $table->string('title',200);
+            $table->text('body');
+            $table->string('slug')->nullable();
+            $table->timestamps();
+
+        });
